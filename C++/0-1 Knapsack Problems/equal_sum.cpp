@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-int equalsum(int n, int arr[], int s){
+bool equalsum(int n, int arr[], int s){
     bool dp[n+1][s+1];
 
     for(int i=0; i<=n; i++){
@@ -17,25 +17,25 @@ int equalsum(int n, int arr[], int s){
             }
         }
     }
-    cout<<dp[n][s];
+    //cout<<dp[n][s];
     return dp[n][s];
 }
 
 int main(){
-    int n, s, sumi=0;
+    int n, s, sum=0;
     cin>>n;
     int arr[n];
     for(int i=0; i<n; i++){
         cin>>arr[i];
     }
     for(int i=0; i<n; i++){
-        sumi += arr[i];
+        sum += arr[i];
     }
-    //cout<<sumi;
-    if(sumi%2==1){
+    //cout<<sum<<endl;
+    if(sum%2==1){
         cout<<false;
     } else {
-        s = sumi/2;
+        s = sum/2;
         //cout<<s;
         cout<<equalsum(n, arr, s);
     }
